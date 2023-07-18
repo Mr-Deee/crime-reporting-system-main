@@ -1,0 +1,47 @@
+.hero {
+    /* background-image: url('../images/police4.jpg'); */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #ff5722;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .hero-button:hover {
+    background-color: #ff6f42;
+  }
+  .hero-button-link {
+ text-decoration: none;
+ color: white;
+  }
+  
+  
