@@ -1,9 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+
 .Auth-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
+ height: 100vh;
 }
 
 .Auth-form {
@@ -32,4 +39,149 @@ label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
+}
+.textwel {
+  text-align: center;
+  margin-top: 20;
+  width: 100;
+  font-size: 34rem;
+  justify-content: center;
+  /* display: flex; */
+  color: #0d0e10;
+  margin: 70;
+}
+
+
+@media screen and (max-width: 960px) {
+  .Welcome,
+  .home,
+  .about,
+  .contact {
+    font-size: 2.5rem;
+  }
+
+  .page-icon {
+    margin-left: 1rem;
+    font-size: 80px;
+  }
+}
+/* Footer CSS */
+.footer__container {
+  background-color: #faf5f5;
+  padding: 5rem 0;
+  text-align: center;
+  
+}
+
+.website__rights {
+  color: #000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.signup-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 20px 50px;
+  box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.2); /* Add your desired shadow properties */
+
+  margin-bottom: 50px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  background-color: #1b1f21;
+}
+.portrait-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sccontainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  border-radius: 10%;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+.scport{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  border-radius: 10%;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+
+}
+.portrait img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.portrait h3 {
+  margin: 10px 0;
+}
+.home{
+  color: #ffffff;
+  background-color: #000;
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+.hometext{
+  font-size: 100px;
+  display: flex;
+  font-size:40px;
+  flex-direction: row;
+  color: #ffffff;
+  margin: 30px;
+  padding: auto;
+
+
+
+}
+
+.portrait p {
+  margin: 0;
+}
+.texthi {
+  margin-top: 24px;
+  font-size: 5.9rem;
+  text-align: center;
+}
+.textwel {
+  text-align: center;
+  width: 100;
+  justify-content: center;
+  font-size: 1.4rem;
+  /* display: flex; */
+  color: #0d0e10;
+  margin: 50px;
 }
