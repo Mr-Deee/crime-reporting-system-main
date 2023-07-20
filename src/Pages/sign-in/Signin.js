@@ -7,7 +7,7 @@ export default function (props) {
   let [authMode, setAuthMode] = useState("signin");
 
   const changeAuthMode = () => {
-    setAuthMode(authMode === "signin" ? "signup" : "signin");
+    // setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
 
   if (authMode === "signin") {
@@ -17,10 +17,10 @@ export default function (props) {
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
-              Not registered yet?{" "}
+              {/* Not registered yet?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
+                Sign Up */}
+           
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
@@ -41,8 +41,8 @@ export default function (props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <Link to={"/Homepage"}>
-                <button className="btn btn-primary">Submit</button>
+              <Link to={"/assigncrime"}>
+                <button className="btn btn-primary" onClick={}>Submit</button>
               </Link>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <Link to={"/Homepage"}>
+            <Link to={"/assigncrime"}>
               <button className="btn btn-primary">Submit</button>
             </Link>
           </div>
