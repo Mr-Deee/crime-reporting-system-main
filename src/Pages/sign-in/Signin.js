@@ -1,11 +1,27 @@
 import React, { useState } from "react";
 import "./Signin.js";
+import firebase from "../../firebase.js";
 import Homepage from "../Homepage.js";
-import { Link } from "react-router-dom";
+import { Link,history } from "react-router-dom";
+
+
 
 export default function (props) {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  // const history  = useHistory();
+ 
   let [authMode, setAuthMode] = useState("signin");
-
+  const handleSignIn = async () => {
+    try {
+      // Sign in with email and password
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      // User signed in successfully, navigate to the assigned crime page
+      history.push('/assignedcrime');
+    } catch (error) {
+      console.error('Error signing in:', error.message);
+    }
+  };
   const changeAuthMode = () => {
     // setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
@@ -25,6 +41,7 @@ export default function (props) {
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
+              value={email}
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
@@ -34,6 +51,7 @@ export default function (props) {
             <div className="form-group mt-3">
               <label>Password</label>
               <input
+              value={password}
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
@@ -41,9 +59,9 @@ export default function (props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <Link to={"/assigncrime"}>
-                <button className="btn btn-primary" onClick={}>Submit</button>
-              </Link>
+            
+                <button className="btn btn-primary" onClick={handleSignIn}>Submit</button>
+            
             </div>
           </div>
         </form>
