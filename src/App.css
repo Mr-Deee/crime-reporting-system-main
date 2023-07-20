@@ -34,7 +34,7 @@
   color: rgb(34, 34, 34);
   font-weight: 800;
 }
-
+/* 
 label {
   font-size: 14px;
   font-weight: 600;
@@ -44,12 +44,12 @@ label {
   text-align: center;
   margin-top: 20;
   width: 100;
-  font-size: 34rem;
+  font-size: 36%;
   justify-content: center;
   /* display: flex; */
-  color: #0d0e10;
-  margin: 70;
-}
+  /* color: #0d0e10; */
+  /* margin: 70; */
+/* }  */
 
 
 @media screen and (max-width: 960px) {
