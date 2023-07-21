@@ -1,0 +1,20 @@
+.card {
+    background-color: #fff;
+    box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.2); /* Add your desired shadow properties */
+  
+    height:40vh;
+  
+    margin: 40px;
+    border-radius: 50px;
+  
+  
+    text-align: center;
+  
+  
+  
+    
+    /* display: flex; */
+    color: #0d0e10;
+   
+  }
+  

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./Signin.js";
 import firebase from "../../firebase.js";
 import Homepage from "../Homepage.js";
-import { Link,history } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 
 
 export default function (props) {
+
+  // const history = Link();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   // const history  = useHistory();
@@ -17,7 +19,7 @@ export default function (props) {
       // Sign in with email and password
       await firebase.auth().signInWithEmailAndPassword(email, password);
       // User signed in successfully, navigate to the assigned crime page
-      history.push('/assignedcrime');
+      Link.push('/assignedcrime');
     } catch (error) {
       console.error('Error signing in:', error.message);
     }
@@ -41,7 +43,8 @@ export default function (props) {
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
-              value={email}
+               onChange={(e) => setEmail(e.target.value)}
+               value={email}
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
@@ -51,6 +54,7 @@ export default function (props) {
             <div className="form-group mt-3">
               <label>Password</label>
               <input
+               onChange={(e) => setPassword(e.target.value)}
               value={password}
                 type="password"
                 className="form-control mt-1"
