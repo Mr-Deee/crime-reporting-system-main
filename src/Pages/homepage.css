@@ -1,0 +1,271 @@
+.Welcome {
+    height: 99vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background-color: #fff;
+    color: #201f1f;
+  /* background-image: url('../images/back3.avif'); */
+    background-size: cover;
+    background-position: center;
+  }
+  .hero {
+    /* background-image: url('../images/police4.jpg'); */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #ff5722;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .hero-button:hover {
+    background-color: #ff6f42;
+  }
+  .hero-button-link {
+ text-decoration: none;
+ color: white;
+  }
+  
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  .signup-button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 20px 50px;
+    box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.2); /* Add your desired shadow properties */
+  
+    margin-bottom: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .signup-button:hover {
+    background-color: #1b1f21;
+  }
+  .portrait-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sccontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+  }
+  .portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    border-radius: 10%;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+  }
+  .scport{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    border-radius: 10%;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+  
+  }
+  .portrait img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    object-fit: cover;
+  }
+  
+  .portrait h3 {
+    margin: 10px 0;
+  }
+  .home{
+    color: #ffffff;
+    background-color: #000;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+    justify-content: center;
+  
+  
+  
+  }
+  
+  .hometext{
+    font-size: 100px;
+    display: flex;
+    font-size:40px;
+    flex-direction: row;
+    color: #ffffff;
+    margin: 30px;
+    padding: auto;
+  
+  
+  
+  }
+  
+  .portrait p {
+    margin: 0;
+  }
+  .texthi {
+    margin-top: 40px;
+    font-size: 3.9rem;
+    text-align: center;
+  }
+  .textwel {
+    text-align: center;
+    width: 100;
+    justify-content: center;
+    font-size: 1.4rem;
+    /* display: flex; */
+    color: #0d0e10;
+    margin-top: 30px;
+  }
+  
+  /* Images CSS */
+  .images {
+    background-color: #141414;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+  }
+  .image-container {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    overflow: auto;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 20px; /* Enable scrolling when the image overflows the container */
+  }
+  
+  .scrollable-image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .CardSection {
+    width: 800px;
+  }
+  
+  .text-highlight {
+    color: #0071f3;
+  }
+  @media screen and (max-width: 960px) {
+    .Welcome,
+    .home,
+    .about,
+    .contact {
+      font-size: 2.5rem;
+    }
+  
+    .page-icon {
+      margin-left: 1rem;
+      font-size: 80px;
+    }
+  
+    .text-highlight {
+      color: #0071f3;
+      font-size: 2.5rem;
+    }
+    .texthi {
+      font-size: 6rem;
+      text-align: center;
+    }
+    .textwel {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 20px;
+    }
+  
+    .image-container {
+      width: 200px; /* Set the desired width */
+      height: 100px; /* Set the desired height */
+      overflow: auto;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      margin-left: 12px; /* Enable scrolling when the image overflows the container */
+    }
+  
+    .scrollable-image {
+      display: block;
+      max-width: 100%;
+      max-height: 300%;
+    }
+  
+    .portrait-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .portrait {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      border-radius: 10%;
+      padding: 10px;
+      text-align: center;
+      width: 100px;
+    }
+  
+    .portrait img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10%;
+      object-fit: cover;
+    }
+  
+    .CardSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 10px;
+    }
+  }
