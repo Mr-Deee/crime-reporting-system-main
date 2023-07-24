@@ -8,7 +8,7 @@ import "firebase/database";
 
 // Initialize Firebase with your configuration
 const firebaseConfig = {
- apiKey: "AIzaSyD_ZTkkSPzOrXPA5n_lTcX0U3q16OS-_VU",
+  apiKey: "AIzaSyD_ZTkkSPzOrXPA5n_lTcX0U3q16OS-_VU",
   authDomain: "crime-reporting-system-c4a7b.firebaseapp.com",
   projectId: "crime-reporting-system-c4a7b",
   storageBucket: "crime-reporting-system-c4a7b.appspot.com",
@@ -17,17 +17,13 @@ const firebaseConfig = {
   measurementId: "G-08E8GHRL5K",
 };
 
-
-
-
 if (!firebase.apps.length) {
-firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 }
 // const firestore = firebase.firestore();
 const db = firebase.firestore();
 
 const SignUpPage = () => {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [policerank, setpolicerank] = useState("");
@@ -69,14 +65,13 @@ const SignUpPage = () => {
           <div className="text-center">
             Already registered?{" "}
             <span className="link-primary">
-            <Link to="/signin">
-              Sign In</Link>
+              <Link to="/signin">Sign In</Link>
             </span>
           </div>
           <div className="form-group mt-3">
             <label>Full Name</label>
             <input
-            value={name}
+              value={name}
               onChange={(e) => setName(e.target.value)}
               type="name"
               className="form-control mt-1"
@@ -86,7 +81,7 @@ const SignUpPage = () => {
           <div className="form-group mt-3">
             <label>Email address</label>
             <input
-            value={email}
+              value={email}
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
@@ -97,7 +92,7 @@ const SignUpPage = () => {
           <div className="form-group mt-3">
             <label>Police Rank</label>
             <input
-            value={policerank}
+              value={policerank}
               type="Police Rank"
               className="form-control mt-1"
               placeholder="Police Rank"
@@ -107,7 +102,7 @@ const SignUpPage = () => {
           <div className="form-group mt-3">
             <label>Password</label>
             <input
-            value={password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               className="form-control mt-1"
