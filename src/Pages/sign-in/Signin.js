@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import "./Signin.js";
 import firebase from "../../firebase.js";
+
+import "firebase/compat/auth";
+
 import Homepage from "../Homepage.js";
 import { Link, useNavigate } from "react-router-dom";
 
