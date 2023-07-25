@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import db from "../firebase";
+import firebase from "../firebase";
 import "./assigncrime.css";
 const Assigncrime = () => {
   const [items, setItems] = useState([]);
@@ -8,7 +8,7 @@ const Assigncrime = () => {
     // Fetch data from Firestore when the component mounts
     const fetchData = async () => {
       try {
-        const collectionRef = db.collection("crimeReports");
+        const collectionRef = firebase.firestore.collection("crimeReports");
         const snapshot = await collectionRef.get();
         const itemsData = snapshot.docs.map((doc) => ({
           id: doc.id,
