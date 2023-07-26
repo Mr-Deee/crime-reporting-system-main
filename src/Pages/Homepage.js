@@ -7,7 +7,7 @@ const Homepage = () => {
     <div className="Welcome">
    
     <div className="texthi"> Welcome To the Crime Report System</div>
-    <div className="textwel">See A Crime? Report it.</div>
+    <div className="textwel">Seen A Crime? Report it.</div>
     <div className="button-container">
      <button className="signup-button" ><Link to={'/report'} className="hero-button-link">Report a crime</Link></button>
      </div>

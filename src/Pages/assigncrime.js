@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../firebase";
 import "./assigncrime.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Link,useNavigate } from "react-router-dom";
 
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 const Assigncrime = () => {
+  const navigate = useNavigate();
   const [crimeReports, setCrimeReports] = useState([]);
   const [policeOfficers, setPoliceOfficers] = useState([]);
   const [assignedOfficers, setAssignedOfficers] = useState({});
@@ -24,6 +28,9 @@ const Assigncrime = () => {
         console.error("Error fetching crime reports: ", error);
       }
     };
+
+
+    
 
     // Fetch police officers from the "policeOfficers" database table
     const fetchPoliceOfficers = async () => {
@@ -48,9 +55,31 @@ const Assigncrime = () => {
     }));
   };
 
+  const handleSignOut = async () => {
+    try {
+       // Sign out from Firebase
+       await firebase.auth().signOut();
+       navigate("/assigncrime");
+
+       // Redirect to the signup screen (replace "/signup" with your actual signup route)
+ 
+       //  } catch (error) {
+    //    console.error("Error signing out:", error);
+    //  }
+      // Redirect to the login or signup screen (replace "/login" or "/signup" with the appropriate route)
+      // Use react-router-dom's useHistory hook for navigation
+      // history.push("/login"); // or history.push("/signup");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
   return (
     <div>
       <h2>Crime Reports:</h2>
+      <div>      <button className="signout-button" onClick={handleSignOut}>
+        <FontAwesomeIcon icon={faSignOutAlt} />
+        Sign Out
+      </button></div>
       {crimeReports.length === 0 ? (
         <div>Loading crime reports...</div>
       ) : (

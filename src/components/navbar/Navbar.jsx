@@ -10,6 +10,8 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+ 
   return (
 <>
     {/* <IconContext.Provider value={{ color: "#fff" }}> */}
@@ -64,7 +66,7 @@ const Navbar = () => {
               </li>
         {/* <div className="d-grid gap-2 mt-3"> */}
           {/* <Link to={'/signup'}> */}
-                <button className="btn btn-primary" onClick={'/signup'}>SignUp</button>
+                <Link to="/signup" style={{ textDecoration: "none" }}  className="button" >Police</Link>
           {/* </Link>      */}
             {/* </div> */}
       </ul>
