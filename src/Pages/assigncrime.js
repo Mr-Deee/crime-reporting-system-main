@@ -9,6 +9,7 @@ const Assigncrime = () => {
     const fetchData = async () => {
       try {
         const collectionRef = firebase.firestore.collection("crimeReports");
+        // Print(collectionRef);
         const snapshot = await collectionRef.get();
         const itemsData = snapshot.docs.map((doc) => ({
           id: doc.id,
