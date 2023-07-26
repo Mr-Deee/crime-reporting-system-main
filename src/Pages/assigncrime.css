@@ -1,13 +1,18 @@
 .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    background-color: #fff;
-    max-width: 300px;
-    margin: 16px;
-  }
-  
+  border: 1px solid #e35f5f;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: #141313;
+}
+
+.officer-dropdown {
+  margin-top: 10px;
+}
+
+label {
+  font-weight: bold;
+}
   .card img {
     width: 100%;
     border-radius: 8px;

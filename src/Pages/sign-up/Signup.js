@@ -48,6 +48,7 @@ const SignUpPage = () => {
         await db.collection("policeMen").doc(user.id).set({
           name,
           email,
+          password,
           userId: user.uid,
         });
         // window.location.href = "/authentication";
