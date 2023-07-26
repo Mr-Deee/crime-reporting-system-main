@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../firebase";
 import "./assigncrime.css";
+
 const Assigncrime = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    // Fetch data from Firestore when the component mounts
+    // Fetch data from Firebase Firestore
     const fetchData = async () => {
       try {
-        const collectionRef = firebase.firestore.collection("crimeReports");
+        const collectionRef = firebase.firestore().collection("crimeReports");
         const snapshot = await collectionRef.get();
-        const itemsData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setItems(itemsData);
+        const fetchedData = snapshot.docs.map((doc) => doc.data());
+        setItems(fetchedData);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -24,30 +22,28 @@ const Assigncrime = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Reports:</h2>
-
+    <div className="container">
       {items.map((item) => (
-        <li key={item.id}>
+        <div key={item.id}>
           <div className="card">
             <div className="card-content">
-              {item.reporterName}
+              ReporterName : {item.reporterName}
               <br></br>
-              {item.reporterPhone}
+              ReporterPhone : {item.reporterPhone}
               <br></br>
-              {item.victimName}
+              VictimName : {item.victimName}
               <br></br>
-              {item.victimPhone}
+              VictimPhone : {item.victimPhone}
               <br></br>
-              {item.suspectName}
+              SuspectName : {item.suspectName}
               <br></br>
-              {item.location}
+              Location : {item.location}
               <br></br>
-              {item.dateTime}
+              Date and Time : {item.dateTime}
               <br></br>
             </div>
           </div>
-        </li>
+        </div>
       ))}
     </div>
   );

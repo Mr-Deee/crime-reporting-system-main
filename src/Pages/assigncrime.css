@@ -1,18 +1,20 @@
+.container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
 .card {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    padding: 20px;
     background-color: #fff;
     max-width: 300px;
-    margin: 16px;
+    margin: 20px;
   }
   
-  .card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 16px;
-  }
+
   
   .card-content {
     text-align: center;
