@@ -28,7 +28,7 @@ const Assigncrime = () => {
     // Fetch police officers from the "policeOfficers" database table
     const fetchPoliceOfficers = async () => {
       try {
-        const officersCollectionRef = firebase.firestore.collection("policeOfficers");
+        const officersCollectionRef = firebase.firestore().collection("policeMen");
         const snapshot = await officersCollectionRef.get();
         const officersData = snapshot.docs.map((doc) => doc.data().name);
         setPoliceOfficers(officersData);
