@@ -52,7 +52,7 @@ const SignUpPage = () => {
           password,
           userId: user.uid,
         });
-        navigate("/assigncrime");
+        navigate("/signin");
       })
       .catch((error) => {
         console.error(error);
