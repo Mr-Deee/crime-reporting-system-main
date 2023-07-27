@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // import "firebase/auth";
 import "firebase/database";
@@ -29,6 +29,7 @@ const SignUpPage = () => {
   const [policerank, setpolicerank] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   const handleSignup = async (event) => {
     event.preventDefault();
     // Create a new user with email and password
@@ -51,7 +52,7 @@ const SignUpPage = () => {
           password,
           userId: user.uid,
         });
-        window.location.href = "/signin";
+        navigate("/assigncrime");
       })
       .catch((error) => {
         console.error(error);
