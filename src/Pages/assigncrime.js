@@ -59,7 +59,7 @@ const Assigncrime = () => {
     try {
        // Sign out from Firebase
        await firebase.auth().signOut();
-       navigate("/assigncrime");
+       navigate("/signin");
 
        // Redirect to the signup screen (replace "/signup" with your actual signup route)
  

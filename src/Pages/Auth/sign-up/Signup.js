@@ -51,7 +51,7 @@ const SignUpPage = () => {
           password,
           userId: user.uid,
         });
-        // window.location.href = "/authentication";
+        window.location.href = "/signin";
       })
       .catch((error) => {
         console.error(error);
