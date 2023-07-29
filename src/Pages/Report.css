@@ -33,7 +33,7 @@
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    background-color: #4caf50;
+    background-color: #0a0b0a;
     color: white;
     border: none;
     border-radius: 4px;
@@ -41,7 +41,7 @@
   }
   
   .crime-management button:hover {
-    background-color: #45a049;
+    background-color: #19251a;
   }
 
   .popup {

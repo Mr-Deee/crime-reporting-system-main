@@ -59,18 +59,18 @@ const Report = () => {
     }
   };
 
-  const handleFetchData = async () => {
-    try {
-      // Fetch data from Firebase
-      const snapshot = await db.collection("crimeReports").get();
+  // const handleFetchData = async () => {
+  //   try {
+  //     // Fetch data from Firebase
+  //     const snapshot = await db.collection("crimeReports").get();
 
-      snapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-      });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  //     snapshot.forEach((doc) => {
+  //       console.log(doc.id, "=>", doc.data());
+  //     });
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
 
   const handlePopupClose = () => {
     setShowPopup(false);
@@ -147,7 +147,7 @@ const Report = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <button onClick={handleFetchData}>Fetch Data</button>
+      {/* <button onClick={handleFetchData}>Fetch Data</button> */}
       {showPopup && (
         <div className="popup">
           <div className="popup-content">

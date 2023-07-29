@@ -3,13 +3,17 @@
   margin: 0;
   padding: 0;
 }
-
+.button{
+  width: 100px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
 
 .navbar {
-  background-color: white;
   color: black;
   /* background: #19191a; */
-  height: 80px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +44,7 @@
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size:2rem;
   display: flex;
   align-items: center;
 }
@@ -90,6 +94,18 @@
 }
 
 @media screen and (max-width: 960px) {
+ 
+ 
+.navbar-logo {
+  color: #0a0101;
+  justify-self: start;
+  cursor: pointer;
+  text-decoration: none;
+  font-size:1rem;
+  display: flex;
+  align-items: center;
+}
+
   .NavbarItems {
     position: relative;
  

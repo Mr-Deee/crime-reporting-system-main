@@ -5,10 +5,32 @@
     font-size: 4rem;
     background-color: #fff;
     color: #201f1f;
-  /* background-image: url('../images/back3.avif'); */
+   /* background-image: url('../images/image1.png');  */
     background-size: cover;
     background-position: center;
   }
+
+
+
+.image-slider-card {
+  width:100%;
+  height: 130px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(139, 108, 108, 0.2);
+}
+
+.image-slider {
+  display: flex;
+  width: 300%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   .hero {
     /* background-image: url('../images/police4.jpg'); */
     background-size: cover;
@@ -151,7 +173,7 @@
     margin: 0;
   }
   .texthi {
-    margin-top: 40px;
+    margin-top: 90px;
     font-size: 3.9rem;
     text-align: center;
   }
@@ -211,10 +233,12 @@
   
     .text-highlight {
       color: #0071f3;
+      
       font-size: 2.5rem;
     }
     .texthi {
-      font-size: 6rem;
+      font-size: 2rem;
+      margin: 20px;
       text-align: center;
     }
     .textwel {

@@ -1,0 +1,18 @@
+/* ContactPage.css */
+.contact-page {
+    max-width: 600px;
+    max-height: 700px;
+    margin: 0 auto;
+    padding: 70px;
+  }
+  
+  .contact-page h1 {
+    font-size: 59px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-page p {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  
