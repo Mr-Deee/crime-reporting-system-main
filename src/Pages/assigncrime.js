@@ -190,7 +190,6 @@ const Assigncrime = () => {
           ))}
         </ul>
       )}
-      <Link to="/pendingcases">Pending Cases</Link>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import SignOut from "./Pages/Auth/SignOut/signout";
 import ContactPage from "./Pages/Contact/Contact";
 import Pendingcase from "./Pages/pendingcase";
 import Solvedcases from "./Pages/solvedcases";
+import Dashboard from "./Pages/dashboard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/assigncrime" element={<Assigncrime />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/signout" element={<SignOut />}></Route>

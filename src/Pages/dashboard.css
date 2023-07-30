@@ -1,0 +1,32 @@
+.container {
+  
+}
+.card {
+    border: 1px solid #c5c5c5;
+    padding: 100px;
+    margin-bottom: 120px;
+    margin-top: 150px;
+    border-radius: 4px;
+    background-color: #cfcfcf;
+ 
+  }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .card-content {
+      text-align: center;
+    }
+    
+    .card-content h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    
+    .card-content p {
+      margin: 8px 0;
+      color: #666;
+    }
+    

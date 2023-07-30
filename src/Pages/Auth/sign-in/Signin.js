@@ -19,10 +19,7 @@ const SignIn = () => {
   // const history  = useHistory();("");
   const navigate = useNavigate();
 
-
- 
   const handleSignIn = async (email, password) => {
-  
     setLoading(true);
     setError(null);
 
@@ -57,11 +54,11 @@ const SignIn = () => {
         password
       );
       if (userCredential.user) {
-        navigate("/assigncrime");
+        navigate("/dashboard");
       }
     } catch (error) {
       const errorCode = error.code;
-    const errorMessage = error.message;
+      const errorMessage = error.message;
     }
   }
 
