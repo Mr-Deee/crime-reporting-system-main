@@ -24,6 +24,7 @@ const Report = () => {
   const [reporterPhone, setReporterPhone] = useState("");
   const [victimName, setVictimName] = useState("");
   const [victimPhone, setVictimPhone] = useState("");
+  const [title, setTitle] = useState("");
   const [suspectName, setSuspectName] = useState("");
   const [location, setLocation] = useState("");
   const [dateTime, setDateTime] = useState("");
@@ -35,6 +36,7 @@ const Report = () => {
     try {
       // Save data to Firebase
       await db.collection("crimeReports").add({
+        title,
         reporterName,
         reporterPhone,
         victimName,
@@ -45,6 +47,7 @@ const Report = () => {
       });
 
       // Reset form fields
+      setTitle("");
       setReporterName("");
       setReporterPhone("");
       setVictimName("");
@@ -82,6 +85,17 @@ const Report = () => {
     <div className="crime-management">
       <h1>Crime Management System</h1>
       <form onSubmit={handleSubmit}>
+        <div className="form-group mt-3">
+          <label>Case Title</label>
+          <input
+            value={title}
+            type="text"
+            className="form-control mt-1"
+            placeholder="Give a brief title 
+              eg.murder in my area"
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
         <label>
           Reporter Name:
           <input

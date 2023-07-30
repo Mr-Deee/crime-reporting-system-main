@@ -10,6 +10,8 @@ import SignUpPage from "./Pages/Auth/sign-up/Signup";
 import Assigncrime from "./Pages/assigncrime";
 import SignOut from "./Pages/Auth/SignOut/signout";
 import ContactPage from "./Pages/Contact/Contact";
+import Pendingcase from "./Pages/pendingcase";
+import Solvedcases from "./Pages/solvedcases";
 
 function App() {
   return (
@@ -24,8 +26,10 @@ function App() {
         <Route path="/contact" element={<ContactPage />}></Route>
         <Route path="/report" element={<Report />}></Route>
         <Route path="/aboutpage" element={<Aboutpage />}></Route>
+        <Route path="/pendingcases" element={<Pendingcase />}></Route>
+        <Route path="/solvedcases" element={<Solvedcases />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
