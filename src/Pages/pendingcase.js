@@ -36,20 +36,6 @@ const Pendingcase = () => {
     fetchData();
   }, []);
 
-  const handleDelete = async (reportId) => {
-    try {
-      // Delete the crime report from Firestore
-      await firebase.db().collection("OpenedCases").doc(reportId).delete();
-      console.log("Crime report deleted successfully!");
-      // Update the state to remove the deleted report from the UI
-      setItems((prevReports) =>
-        prevReports.filter((report) => report.id !== reportId)
-      );
-    } catch (error) {
-      console.error("Error deleting crime report:", error);
-    }
-  };
-
   useEffect(() => {
     // Load data from the "OpenedCases" collection in Firestore
     const unsubscribe = db.collection("OpenedCases").onSnapshot((snapshot) => {
@@ -74,6 +60,19 @@ const Pendingcase = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      // Delete the crime report from Firestore collection "OpenedCases"
+      await db.collection("OpenedCases").doc(id).delete();
+      // Remove the deleted report from the component's state
+      setItems((prevReports) =>
+        prevReports.filter((report) => report.id !== id)
+      );
+    } catch (error) {
+      console.error("Error deleting crime report:", error);
+    }
+  };
+
   return (
     <div>
       <h1>Pending Cases</h1>
@@ -95,6 +94,8 @@ const Pendingcase = () => {
             <strong>Location:</strong> {report.location}
             <br />
             <strong>Date and Time:</strong> {report.dateTime}
+            <br />
+            <strong>Assigned Officer:</strong> {report.officerName}
             <button
               onClick={() => {
                 handleTransferCases(report.id);

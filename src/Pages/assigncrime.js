@@ -33,8 +33,7 @@ const Assigncrime = () => {
         officerName,
         reportId,
         caseTitle:
-          crimeReports.find((report) => report.id === reportId)?.casetitle ||
-          "",
+          crimeReports.find((report) => report.id === reportId)?.title || "",
         location:
           crimeReports.find((report) => report.id === reportId)?.location || "",
         reporterName:
@@ -146,7 +145,7 @@ const Assigncrime = () => {
             <li key={report.id}>
               <div className="card">
                 <div className="card-content">
-                  <strong>Case Title:</strong> {report.casetitle}
+                  <strong>Case Title:</strong> {report.title}
                   <br />
                   <strong>Reporter Name:</strong> {report.reporterName}
                   <br />

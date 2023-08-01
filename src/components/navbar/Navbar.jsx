@@ -40,7 +40,7 @@ const Navbar = () => {
 
             <li className="nav-item">
               <NavLink
-                to="/About"
+                to="/Aboutpage"
                 className={({ isActive }) =>
                   "nav-links" + (isActive ? " activated" : "")
                 }
