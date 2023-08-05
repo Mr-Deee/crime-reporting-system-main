@@ -1,42 +1,47 @@
-import React from 'react';
-import { Fade, Zoom, Slide } from 'react-slideshow-image';
+
+// import { Fade, Zoom, Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import image1 from '../images/image1.png'
 import image2 from '../images/image2.png'
-const slideshow = [
-{
- url: '../images/image1.png',
- caption: ''
-},
-{
-    url: '../images/image2.png',
-    caption: ''
-},
+import image3 from '../images/image2.png'
+
+import React, { useState, useEffect } from 'react';
+import './ImageSlider.css'; // Make sure to add the CSS file in the same directory.
+
+const images = [
+ image1,
+image2,
+image3,
+
+
+  // Add more image URLs as needed.
 ];
 
-const divStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContents: 'center',
-    height: '400px',
-    backgroundSize: 'cover'
-}
+const ImageSlider = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-const Image = () => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Increment the currentImageIndex to move to the next image.
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change slide every 3 seconds (adjust as needed).
+
+    // Clear the interval when the component unmounts.
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className=''>
-      <Fade>
-        {slideshow.map((image, index) => (
-           <div key={index}> 
-               <div style={{...divStyle, backgroundImage:`url(${image.url})`}}>
-
-               </div>
-           </div>
-        ))}
-      </Fade>
+    <div className="slider-container">
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`slide ${index === currentImageIndex ? 'active' : ''}`}
+        >
+          <img src={image} alt={`Slide ${index + 1}`} />
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Image;
-
+export default ImageSlider;
