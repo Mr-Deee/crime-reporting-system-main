@@ -1,0 +1,62 @@
+/* AboutPage.css */
+
+/* Styling for the entire AboutPage container */
+.about-container {
+    max-width: 600px;
+    margin:  auto;
+    padding: 20px;
+  }
+  
+  /* Styling for the individual cards */
+  .about-card, .values-card, .mission-card, .contact-card {
+    background-color: #efebeb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the section headings */
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the paragraphs inside the cards */
+  p {
+    margin: 30px;
+    padding: 50px;
+    color: #666;
+  }
+  
+  /* Styling for the list items inside the values-card */
+  .values-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  /* Styling for the team member cards (Assuming each team member card has a class of '.team-member-card') */
+  .team-member-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the images inside the team member cards (Assuming each image has a class of '.team-member-image') */
+  .team-member-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the contact information */
+  .contact-card p {
+    font-weight: bold;
+  }
+  
+  /* Add more CSS styles as needed to further customize the appearance of your About Page */
+  

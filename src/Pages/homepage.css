@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    background-color: #fff;
+    background-color: #ca4040;
     color: #201f1f;
    /* background-image: url('../images/image1.png');  */
     background-size: cover;
@@ -22,7 +22,7 @@
 
 .image-slider {
   display: flex;
-  width: 300%;
+  width: 400%;
   transition: transform 0.6s ease-in-out;
 }
 
