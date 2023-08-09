@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
+import Navbar from "../components/navbar/Navbar";
+
 import image1 from "../images/image1.png";
 import image2 from "../images/image2.png";
 import image3 from "../images/image2.png";
@@ -29,7 +31,10 @@ const Homepage = () => {
 
   return (
     <>
+    <div className="homepage">
+      <Navbar />
       <div className="Welcome">
+    
         <div className="texthi"> Welcome To the Crime Report System</div>
         <div className="textwel">Seen A Crime? Report it.</div>
         <div className="button-container">
@@ -40,6 +45,7 @@ const Homepage = () => {
           </button>
         </div>
         <Image />
+      </div>
       </div>
     </>
   );
