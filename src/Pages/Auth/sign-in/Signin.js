@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./Signin.js";
 import firebase from "../../../firebase";
+import CircularProgress from '../../../components/circularprogress.js';
 
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import "firebase/compat/auth";
@@ -9,7 +10,35 @@ import "firebase/compat/auth";
 // import Homepage from "../Homepage.js";
 import { Link, useNavigate } from "react-router-dom";
 
+
+
+
 const SignIn = () => {
+
+
+  const [showProgress, setShowProgress] = useState(false);
+  const [progressPercentage, setProgressPercentage] = useState(0);
+  
+  const toggleProgress = () => {
+    setShowProgress(!showProgress);
+  
+    // Simulate progress animation
+    if (!showProgress) {
+      let percentage = 0;
+      const interval = setInterval(() => {
+        percentage += 5;
+        if (percentage > 100) {
+          clearInterval(interval);
+          setShowProgress(false);
+        } else {
+          setProgressPercentage(percentage);
+        }
+      }, 100);
+    }
+  };
+
+
+
   // const history = Link();
   // const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
