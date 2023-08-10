@@ -12,10 +12,23 @@ const Assigncrime = () => {
   const [crimeReports, setCrimeReports] = useState([]);
   const [policeOfficers, setPoliceOfficers] = useState([]);
   const [assignedOfficers, setAssignedOfficers] = useState({});
-
+  const deleteAssignedRecord = async (reportId) => {
+    try {
+      const db = firebase.firestore();
+      const assignedOfficersRef = db.collection("crimeReports");
+  
+      // Delete the assigned record using the assignmentId
+      await assignedOfficersRef.doc(reportId).delete();
+  
+      console.log(`Assigned record with ID ${reportId} deleted successfully.`);
+    } catch (error) {
+      console.error("Error deleting assigned record:", error);
+    }
+  };
   const handleAssign = async (reportId) => {
     try {
       const officerName = assignedOfficers[reportId];
+
       if (!officerName) {
         console.error("Please select an officer to assign.");
         return;
@@ -23,12 +36,12 @@ const Assigncrime = () => {
 
       // Get a reference to the Firebase database and the table for assigned officers
       const db = firebase.firestore();
+      const OpenedCasesRef = db.collection("crimeReports");
+
       const assignedOfficersRef = db.collection("OpenedCases");
-
+ 
       // Create a new document in the assignedOfficers table with a unique ID
-      const assignmentId = uuidv4();
-
-      // Save the assignment data to Firebase
+      const assignmentId = uuidv4();      // Save the assignment data to Firebase
       await assignedOfficersRef.doc(assignmentId).set({
         officerName,
         reportId,
@@ -52,6 +65,9 @@ const Assigncrime = () => {
           crimeReports.find((report) => report.id === reportId)?.victimPhone ||
           "",
       });
+      //await assignedOfficersRef.doc(assignmentId).delete();
+
+      deleteAssignedRecord(reportId);
 
       // Optionally, you can show a success message or do other actions after the assignment
       console.log(
