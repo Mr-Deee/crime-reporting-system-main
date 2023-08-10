@@ -1,41 +1,61 @@
-.container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   
+.assigncrime-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
-.card {
-  border: 1px solid #e35f5f;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 4px;
-  background-color: #141313;
+
+.signout-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.crime-reports-list {
+  list-style: none;
+  padding: 0;
+}
+
+.report-card {
+
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow:#2d2c2c;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-details {
+  margin-bottom: 10px;
+}
+
+.officer-assignment {
+  display: flex;
+  align-items: center;
 }
 
 .officer-dropdown {
-  margin-top: 10px;
+  margin-right: 10px;
 }
 
-label {
+.officer-dropdown label {
   font-weight: bold;
 }
-  .card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .card-content {
-    text-align: center;
-  }
-  
-  .card-content h3 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .card-content p {
-    margin: 8px 0;
-    color: #666;
-  }
-  
+
+.officer-dropdown select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.officer-dropdown button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.officer-dropdown button:hover {
+  background-color: #0056b3;
+}

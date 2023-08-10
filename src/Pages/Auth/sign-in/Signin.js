@@ -76,6 +76,7 @@ const SignIn = () => {
   async function onSubmit(e) {
     e.preventDefault();
     try {
+      toggleProgress();
       const auth = getAuth();
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -120,7 +121,8 @@ const SignIn = () => {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button className="btn btn-primary" onClick={onSubmit}>
+            <button className="btn btn-primary" onClick={onSubmit
+            }>
               Submit
             </button>
           </div>
