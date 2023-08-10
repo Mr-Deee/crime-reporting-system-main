@@ -12,6 +12,8 @@ const Assigncrime = () => {
   const [crimeReports, setCrimeReports] = useState([]);
   const [policeOfficers, setPoliceOfficers] = useState([]);
   const [assignedOfficers, setAssignedOfficers] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
   const deleteAssignedRecord = async (reportId) => {
     try {
       const db = firebase.firestore();
@@ -70,6 +72,8 @@ const Assigncrime = () => {
       deleteAssignedRecord(reportId);
 
       // Optionally, you can show a success message or do other actions after the assignment
+      setShowAlert(true);
+      setAlertMessage("Assigned record deleted successfully.");
       console.log(
         `Officer "${officerName}" assigned to case "${
           crimeReports.find((report) => report.id === reportId)?.casetitle
