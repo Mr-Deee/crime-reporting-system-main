@@ -79,18 +79,7 @@ deletePendingRecord(reportId);
     }
   };
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     // Delete the crime report from Firestore collection "OpenedCases"
-  //     await db.collection("OpenedCases").doc(id).delete();
-  //     // Remove the deleted report from the component's state
-  //     setItems((prevReports) =>
-  //       prevReports.filter((report) => report.id !== id)
-  //     );
-  //   } catch (error) {
-  //     console.error("Error deleting crime report:", error);
-  //   }
-  // };
+
 
   return (
     <div>
