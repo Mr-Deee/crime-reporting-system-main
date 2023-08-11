@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
- /* background-image: url('./images/image1.png');  */
+
   font-family: "Open Sans", sans-serif;
 }
 
@@ -35,22 +35,6 @@
   color: rgb(34, 34, 34);
   font-weight: 800;
 }
-/* 
-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(34, 34, 34);
-}
-.textwel {
-  text-align: center;
-  margin-top: 20;
-  width: 100;
-  font-size: 36%;
-  justify-content: center;
-  /* display: flex; */
-  /* color: #0d0e10; */
-  /* margin: 70; */
-/* }  */
 
 
 @media screen and (max-width: 960px) {

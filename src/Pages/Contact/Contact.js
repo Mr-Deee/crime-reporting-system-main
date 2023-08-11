@@ -1,7 +1,6 @@
 // ContactPage.js
 import React from "react";
-import "./Contact.css"; // Import the CSS file for styling
-
+import "./Contact.css"; 
 const ContactPage = () => {
   return (
     <div className="contact-page">
