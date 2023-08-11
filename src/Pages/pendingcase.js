@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase/compat/app";
+
+import "./assigncrime.css";
+
 import "firebase/compat/firestore";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,6 +15,22 @@ const firebaseConfig = {
   messagingSenderId: "781871322055",
   appId: "1:781871322055:web:35597bab711f0f47f0bfe2",
   measurementId: "G-08E8GHRL5K",
+};
+
+
+
+const deletePendingRecord = async (reportId) => {
+  try {
+    const db = firebase.firestore();
+    const assignedOfficersRef = db.collection("OpenedCases");
+
+    // Delete the assigned record using the assignmentId
+    await assignedOfficersRef.doc(reportId).delete();
+
+    console.log(`Assigned record with ID ${reportId} deleted successfully.`);
+  } catch (error) {
+    console.error("Error deleting assigned record:", error);
+  }
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -53,30 +72,31 @@ const Pendingcase = () => {
   const handleTransferCases = (reportId) => {
     // Find the specific case in the "OpenedCases" collection
     const caseToTransfer = items.find((report) => report.id === reportId);
-
+deletePendingRecord(reportId);
     // Transfer the specific case to the "ClosedCases" collection
     if (caseToTransfer) {
       db.collection("ClosedCases").add(caseToTransfer);
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      // Delete the crime report from Firestore collection "OpenedCases"
-      await db.collection("OpenedCases").doc(id).delete();
-      // Remove the deleted report from the component's state
-      setItems((prevReports) =>
-        prevReports.filter((report) => report.id !== id)
-      );
-    } catch (error) {
-      console.error("Error deleting crime report:", error);
-    }
-  };
+  // const handleDelete = async (id) => {
+  //   try {
+  //     // Delete the crime report from Firestore collection "OpenedCases"
+  //     await db.collection("OpenedCases").doc(id).delete();
+  //     // Remove the deleted report from the component's state
+  //     setItems((prevReports) =>
+  //       prevReports.filter((report) => report.id !== id)
+  //     );
+  //   } catch (error) {
+  //     console.error("Error deleting crime report:", error);
+  //   }
+  // };
 
   return (
     <div>
       <h1>Pending Cases</h1>
       <div className="card-container">
+      
         {items.map((report) => (
           <div className="card" key={report.id}>
             <strong>Case Title:</strong> {report.casetitle}
@@ -99,7 +119,7 @@ const Pendingcase = () => {
             <button
               onClick={() => {
                 handleTransferCases(report.id);
-                handleDelete();
+                // handleDelete();
               }}
             >
               Close or Done

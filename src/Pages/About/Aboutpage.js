@@ -1,9 +1,11 @@
 import React from "react";
 import "./about.css"
+import Navbar from "../../components/navbar/Navbar";
 
 const Aboutpage = () => {
   return(
   <div className="about-container">
+      {/* <Navbar /> */}
       <div className="about-card">
         <h2>About Us</h2>
         <p>
