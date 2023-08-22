@@ -138,7 +138,7 @@ const Report = () => {
             type="text"
             value={suspectName}
             onChange={(e) => setSuspectName(e.target.value)}
-            required
+     
           />
         </label>
         <label>
