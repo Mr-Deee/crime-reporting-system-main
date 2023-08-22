@@ -31,8 +31,9 @@ const Homepage = () => {
 
   return (
     <>
+
     <div className="homepage">
-      <Navbar/>
+     
       <div className="Welcome">
     
         <div className="texthi"> Welcome To the Crime Report System</div>
