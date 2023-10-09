@@ -13,11 +13,12 @@ import ContactPage from "./Pages/Contact/Contact";
 import Pendingcase from "./Pages/pendingcase";
 import Solvedcases from "./Pages/solvedcases";
 import Dashboard from "./Pages/dashboard";
+import Trackcase from "./Pages/trackcase";
 
 function App() {
   return (
     <div className="App">
-  <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/assigncrime" element={<Assigncrime />}></Route>
@@ -30,6 +31,7 @@ function App() {
         <Route path="/aboutpage" element={<Aboutpage />}></Route>
         <Route path="/pendingcases" element={<Pendingcase />}></Route>
         <Route path="/solvedcases" element={<Solvedcases />}></Route>
+        <Route path="/Trackcase" element={<Trackcase />}></Route>
       </Routes>
       <Footer />
     </div>

@@ -67,6 +67,7 @@ const Navbar = () => {
         {/* <div className="d-grid gap-2 mt-3"> */}
           {/* <Link to={'/signup'}> */}
                 <Link to="/signup" style={{ textDecoration: "none" }}  className="button" >Police</Link>
+                <Link to="/Trackcase" style={{ textDecoration: "none" }}  className="button1" >Track A Case</Link>
           {/* </Link>      */}
             {/* </div> */}
       </ul>

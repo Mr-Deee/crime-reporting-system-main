@@ -14,14 +14,15 @@ const Assigncrime = () => {
   const [assignedOfficers, setAssignedOfficers] = useState({});
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+
   const deleteAssignedRecord = async (reportId) => {
     try {
       const db = firebase.firestore();
       const assignedOfficersRef = db.collection("crimeReports");
-  
+
       // Delete the assigned record using the assignmentId
       await assignedOfficersRef.doc(reportId).delete();
-  
+
       console.log(`Assigned record with ID ${reportId} deleted successfully.`);
     } catch (error) {
       console.error("Error deleting assigned record:", error);
@@ -36,14 +37,24 @@ const Assigncrime = () => {
         return;
       }
 
+      const otherCollectionRef = db.collection("crimeReports"); // Replace with your actual collection name
+
+      // Update a document in the other collection
+      await otherCollectionRef.doc("documentIdToUpdate").update({
+        trackCase: "Pending",
+        // Add other fields you want to update
+      });
+
+      console.log("Value updated successfully.");
+
       // Get a reference to the Firebase database and the table for assigned officers
       const db = firebase.firestore();
       const OpenedCasesRef = db.collection("crimeReports");
 
       const assignedOfficersRef = db.collection("OpenedCases");
- 
+
       // Create a new document in the assignedOfficers table with a unique ID
-      const assignmentId = uuidv4();      // Save the assignment data to Firebase
+      const assignmentId = uuidv4(); // Save the assignment data to Firebase
       await assignedOfficersRef.doc(assignmentId).set({
         officerName,
         reportId,
@@ -199,7 +210,11 @@ const Assigncrime = () => {
                         </option>
                       ))}
                     </select>
-                    <button onClick={() => handleAssign(report.id)}>
+                    <button
+                      onClick={(event) => {
+                        handleAssign();
+                      }}
+                    >
                       Assign
                     </button>
                   </div>

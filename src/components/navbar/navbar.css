@@ -8,7 +8,15 @@
   background-color: black;
   border-radius: 10px;
   color: white;
+  margin: 5px;
 }
+.button1 {
+  width: 125px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  margin: 5px;
+} 
 
 /* .navbar { */
   /* color: black;

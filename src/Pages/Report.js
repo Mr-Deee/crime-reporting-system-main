@@ -36,12 +36,11 @@ const Report = () => {
     e.preventDefault(id);
 
     try {
-
-     // Generate a unique ID (timestamp + six-digit random string)
-     const randomPart = Math.random().toString(36).substr(2, 6);
-     const timestampPart = Date.now().toString().slice(-6); // Take the last 6 digits of the timestamp
-     const id = timestampPart + randomPart;
-     setId(id);
+      // Generate a unique ID (timestamp + six-digit random string)
+      const randomPart = Math.random().toString(36).substr(2, 6);
+      const timestampPart = Date.now().toString().slice(-6); // Take the last 6 digits of the timestamp
+      const id = timestampPart + randomPart;
+      setId(id);
       // Save data to Firebase
       await db.collection("crimeReports").add({
         id,
@@ -53,6 +52,7 @@ const Report = () => {
         suspectName,
         location,
         dateTime,
+        trackcase: ``,
       });
 
       // Reset form fields
@@ -129,7 +129,6 @@ const Report = () => {
             type="text"
             value={victimName}
             onChange={(e) => setVictimName(e.target.value)}
-           
           />
         </label>
         <label>
@@ -138,7 +137,6 @@ const Report = () => {
             type="tel"
             value={victimPhone}
             onChange={(e) => setVictimPhone(e.target.value)}
-          
           />
         </label>
         <label>
@@ -147,7 +145,6 @@ const Report = () => {
             type="text"
             value={suspectName}
             onChange={(e) => setSuspectName(e.target.value)}
-     
           />
         </label>
         <label>
@@ -174,8 +171,9 @@ const Report = () => {
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
-           
-            <h6>This is your case ID Keep it to track case:<h2>|{id}|</h2></h6>
+            <h6>
+              This is your case ID Keep it to track case:<h2>|{id}|</h2>
+            </h6>
             <h2>Submission Successful!</h2>
             <button onClick={handlePopupClose}>Close</button>
           </div>
