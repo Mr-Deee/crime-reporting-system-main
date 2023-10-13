@@ -72,9 +72,9 @@ const Pendingcase = () => {
   const handleTransferCases = async (reportId) => {
     // Find the specific case in the "OpenedCases" collection
     const caseToTransfer = items.find((report) => report.id === reportId);
-    const crimeReportsRef = db.collection("crimeReports");
-    await crimeReportsRef.doc(reportId).update({
-      trackcase: "solved", // You can set this status according to your needs.
+
+    await db.collection("crimeReports").doc(reportId).update({
+      trackCase: "closed", // Set the new status value here
     });
     // deletePendingRecord(reportId);
     // Transfer the specific case to the "ClosedCases" collection

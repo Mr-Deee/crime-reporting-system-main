@@ -25,7 +25,7 @@ const SearchBar = ({ setSearchResults }) => {
 
     if (searchTerm.trim() !== '') {
       db.collection('crimeReports')
-        .where('reportId', '==', searchTerm)
+        .where('crimeId', '==', searchTerm)
         .get()
         .then((querySnapshot) => {
           const results = querySnapshot.docs.map((doc) => doc.data());

@@ -11,7 +11,7 @@ const SearchResults = ({ results }) => {
               <div className="card" key={index}>
                 <div className="cardcontent">
                   Your is case is<br></br>
-                  <strong>{crime.trackcase}</strong>
+                  <strong>{crime.trackCase}</strong>
                 </div>
               </div>
             </div>

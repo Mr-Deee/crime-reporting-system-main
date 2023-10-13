@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 const Assigncrime = () => {
   const navigate = useNavigate();
   const [crimeReports, setCrimeReports] = useState([]);
+  const [crimeId, setCrimeId] = useState([]);
   const [policeOfficers, setPoliceOfficers] = useState([]);
   const [assignedOfficers, setAssignedOfficers] = useState({});
   const [showAlert, setShowAlert] = useState(false);
@@ -46,10 +47,10 @@ const Assigncrime = () => {
       const assignedOfficersRef = db.collection("OpenedCases");
 
       // Create a new document in the assignedOfficers table with a unique ID
-      const assignmentId = uuidv4(); // Save the assignment data to Firebase
-      await assignedOfficersRef.doc(assignmentId).set({
+      // Save the assignment data to Firebase
+      await assignedOfficersRef.doc(reportId).set({
         officerName,
-        reportId,
+        crimeId,
         caseTitle:
           crimeReports.find((report) => report.id === reportId)?.title || "",
         location:
@@ -73,8 +74,8 @@ const Assigncrime = () => {
       //await assignedOfficersRef.doc(assignmentId).delete();
       const crimeReportsRef = db.collection("crimeReports");
       await crimeReportsRef.doc(reportId).update({
-        trackcase: "pending",
-        reportId: { reportId }, // You can set this status according to your needs.
+        trackCase: "pending",
+        // You can set this status according to your needs.
       });
 
       // deleteAssignedRecord(reportId);
