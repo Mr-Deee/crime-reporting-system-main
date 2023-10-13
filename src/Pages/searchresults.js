@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./search.css";
 const SearchResults = ({ results }) => {
   return (
     <div>
@@ -10,7 +10,8 @@ const SearchResults = ({ results }) => {
             <div>
               <div className="card" key={index}>
                 <div className="cardcontent">
-                  <strong>{crime.location}</strong>
+                  Your is case is<br></br>
+                  <strong>{crime.trackcase}</strong>
                 </div>
               </div>
             </div>

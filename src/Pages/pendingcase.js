@@ -17,7 +17,8 @@ const firebaseConfig = {
   measurementId: "G-08E8GHRL5K",
 };
 
-const deletePendingRecord = async (reportId) => {
+{
+  /*const deletePendingRecord = async (reportId) => {
   try {
     const db = firebase.firestore();
     const assignedOfficersRef = db.collection("OpenedCases");
@@ -29,7 +30,8 @@ const deletePendingRecord = async (reportId) => {
   } catch (error) {
     console.error("Error deleting assigned record:", error);
   }
-};
+};*/
+}
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -67,10 +69,14 @@ const Pendingcase = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleTransferCases = (reportId) => {
+  const handleTransferCases = async (reportId) => {
     // Find the specific case in the "OpenedCases" collection
     const caseToTransfer = items.find((report) => report.id === reportId);
-    deletePendingRecord(reportId);
+    const crimeReportsRef = db.collection("crimeReports");
+    await crimeReportsRef.doc(reportId).update({
+      trackcase: "solved", // You can set this status according to your needs.
+    });
+    // deletePendingRecord(reportId);
     // Transfer the specific case to the "ClosedCases" collection
     if (caseToTransfer) {
       db.collection("ClosedCases").add(caseToTransfer);
@@ -101,7 +107,6 @@ const Pendingcase = () => {
             <br />
             <strong>Assigned Officer:</strong> {report.officerName}
             <br />
-            <strong>Track case:</strong> <p>Closed Case</p>
             <button
               onClick={() => {
                 handleTransferCases(report.id);

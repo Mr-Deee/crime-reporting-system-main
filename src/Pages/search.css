@@ -6,12 +6,47 @@
   }
   
   .search-bar input {
-    flex: 1;
+
     padding: 10px;
-    width: 850px;
+    width: 500px;
     font-size: 16px;
     border: 2px solid #ccc;
     border-radius: 5px 0 0 5px;
   }
   
- 
+  .cards-container {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+}
+
+section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.card-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+
+}
+
+.card {
+    flex: 10px 10px calc(33.33% - 20px);
+    max-width: calc(33.33% -20px);
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 10px;
+    padding: 40px;
+    width: 350px; 
+    height: 250px;
+    margin: 20px;
+    min-width: 300px;
+    margin-bottom: 20px;
+    
+}
+.button3 {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+}

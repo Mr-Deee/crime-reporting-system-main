@@ -21,7 +21,7 @@ const db = firebase.firestore();
 const Report = () => {
   const navigate = useNavigate();
   const [reporterName, setReporterName] = useState("");
-  const [id, setId] = useState("");
+  const [reportId, setreportId] = useState("");
   // const [id, setReporterID] = useState("");
   const [reporterPhone, setReporterPhone] = useState("");
   const [victimName, setVictimName] = useState("");
@@ -33,17 +33,17 @@ const Report = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(id);
+    e.preventDefault(reportId);
 
     try {
       // Generate a unique ID (timestamp + six-digit random string)
       const randomPart = Math.random().toString(36).substr(2, 6);
       const timestampPart = Date.now().toString().slice(-6); // Take the last 6 digits of the timestamp
       const id = timestampPart + randomPart;
-      setId(id);
+      setreportId(id);
       // Save data to Firebase
       await db.collection("crimeReports").add({
-        id,
+        reportId,
         title,
         reporterName,
         reporterPhone,
@@ -172,7 +172,7 @@ const Report = () => {
         <div className="popup">
           <div className="popup-content">
             <h6>
-              This is your case ID Keep it to track case:<h2>|{id}|</h2>
+              This is your case ID Keep it to track case:<h2>|{reportId}|</h2>
             </h6>
             <h2>Submission Successful!</h2>
             <button onClick={handlePopupClose}>Close</button>

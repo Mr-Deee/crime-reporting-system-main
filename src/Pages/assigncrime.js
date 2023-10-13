@@ -15,7 +15,8 @@ const Assigncrime = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
-  const deleteAssignedRecord = async (reportId) => {
+  {
+    /*const deleteAssignedRecord = async (reportId) => {
     try {
       const db = firebase.firestore();
       const assignedOfficersRef = db.collection("crimeReports");
@@ -27,7 +28,8 @@ const Assigncrime = () => {
     } catch (error) {
       console.error("Error deleting assigned record:", error);
     }
-  };
+  };*/
+  }
   const handleAssign = async (reportId) => {
     try {
       const officerName = assignedOfficers[reportId];
@@ -36,16 +38,6 @@ const Assigncrime = () => {
         console.error("Please select an officer to assign.");
         return;
       }
-
-      const otherCollectionRef = db.collection("crimeReports"); // Replace with your actual collection name
-
-      // Update a document in the other collection
-      await otherCollectionRef.doc("documentIdToUpdate").update({
-        trackCase: "Pending",
-        // Add other fields you want to update
-      });
-
-      console.log("Value updated successfully.");
 
       // Get a reference to the Firebase database and the table for assigned officers
       const db = firebase.firestore();
@@ -79,8 +71,13 @@ const Assigncrime = () => {
           "",
       });
       //await assignedOfficersRef.doc(assignmentId).delete();
+      const crimeReportsRef = db.collection("crimeReports");
+      await crimeReportsRef.doc(reportId).update({
+        trackcase: "pending",
+        reportId: { reportId }, // You can set this status according to your needs.
+      });
 
-      deleteAssignedRecord(reportId);
+      // deleteAssignedRecord(reportId);
 
       // Optionally, you can show a success message or do other actions after the assignment
       setShowAlert(true);
@@ -210,11 +207,7 @@ const Assigncrime = () => {
                         </option>
                       ))}
                     </select>
-                    <button
-                      onClick={(event) => {
-                        handleAssign();
-                      }}
-                    >
+                    <button onClick={() => handleAssign(report.id)}>
                       Assign
                     </button>
                   </div>

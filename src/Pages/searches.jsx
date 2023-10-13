@@ -25,7 +25,7 @@ const SearchBar = ({ setSearchResults }) => {
 
     if (searchTerm.trim() !== '') {
       db.collection('crimeReports')
-        .where('id', '==', searchTerm)
+        .where('reportId', '==', searchTerm)
         .get()
         .then((querySnapshot) => {
           const results = querySnapshot.docs.map((doc) => doc.data());
@@ -46,7 +46,7 @@ const SearchBar = ({ setSearchResults }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="search for a case with id"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className='button3'>Search</button>
     </div>
   );
 };
