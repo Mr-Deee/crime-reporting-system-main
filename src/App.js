@@ -19,20 +19,22 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/assigncrime" element={<Assigncrime />}></Route>
-        <Route path="/dashboard" element={<Dashboard />}></Route>
-        <Route path="/signin" element={<Signin />}></Route>
-        <Route path="/signup" element={<SignUpPage />}></Route>
-        <Route path="/signout" element={<SignOut />}></Route>
-        <Route path="/contact" element={<ContactPage />}></Route>
-        <Route path="/report" element={<Report />}></Route>
-        <Route path="/aboutpage" element={<Aboutpage />}></Route>
-        <Route path="/pendingcases" element={<Pendingcase />}></Route>
-        <Route path="/solvedcases" element={<Solvedcases />}></Route>
-        <Route path="/Trackcase" element={<Trackcase />}></Route>
-      </Routes>
+      <div className="routes">
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/assigncrime" element={<Assigncrime />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/signin" element={<Signin />}></Route>
+          <Route path="/signup" element={<SignUpPage />}></Route>
+          <Route path="/signout" element={<SignOut />}></Route>
+          <Route path="/contact" element={<ContactPage />}></Route>
+          <Route path="/report" element={<Report />}></Route>
+          <Route path="/aboutpage" element={<Aboutpage />}></Route>
+          <Route path="/pendingcases" element={<Pendingcase />}></Route>
+          <Route path="/solvedcases" element={<Solvedcases />}></Route>
+          <Route path="/Trackcase" element={<Trackcase />}></Route>
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

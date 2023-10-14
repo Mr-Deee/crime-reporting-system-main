@@ -1,9 +1,10 @@
 .footer{
-background-Color: black;
-background-image: "";
+    background-color: #000000;
     color: white;
-    padding: 20px;
-    text-Align: "center";
+    padding: 5rem 0;
+    text-align: center;
+    height: 20px;
+    
 }
 
 .footer-content{

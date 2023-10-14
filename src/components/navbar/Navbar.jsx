@@ -31,6 +31,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   "nav-links" + (isActive ? " activated" : "")
                 }
+                class= 'item'
                 onClick={closeMobileMenu}
               >
                 Home
@@ -44,6 +45,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   "nav-links" + (isActive ? " activated" : "")
                 }
+                class= 'item'
                 onClick={closeMobileMenu}
               >
                 About
@@ -56,6 +58,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   "nav-links" + (isActive ? " activated" : "")
                 }
+                class= 'item'
                 onClick={closeMobileMenu}
               >
                 Contact
@@ -77,3 +80,5 @@ const Navbar = () => {
 )};
 
 export default Navbar;
+
+

@@ -159,7 +159,7 @@ const Assigncrime = () => {
   return (
     <div>
       <h2>Crime Reports:</h2>
-      <div>
+      <div className="cardsdiv">
         {" "}
         {/*<button className="signout-button" onClick={handleSignOut}>
           <FontAwesomeIcon icon={faSignOutAlt} />

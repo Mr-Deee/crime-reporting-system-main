@@ -2,11 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
+  
   font-family: "Open Sans", sans-serif;
 }
 
-
+.routes {
+  margin-bottom: 10px;
+}
 .Auth-form-container {
   display: flex;
   justify-content: center;
@@ -51,12 +53,7 @@
   }
 }
 /* Footer CSS */
-.footer__container {
-  background-color: #faf5f5;
-  padding: 5rem 0;
-  text-align: center;
-  
-}
+
 
 .website__rights {
   color: #000;
