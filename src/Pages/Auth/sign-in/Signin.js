@@ -73,11 +73,11 @@ const SignIn = () => {
       [e.target.id]: e.target.value,
     }));
   }
-  async function onSubmit(e) {
+  const  onSubmit= async (e) =>{
     e.preventDefault();
+    setLoading(true);
     try {
-      toggleProgress();
-      const auth = getAuth();
+     const auth = getAuth();
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -87,9 +87,15 @@ const SignIn = () => {
         navigate("/dashboard");
       }
     } catch (error) {
-      const errorCode = error.code;
       const errorMessage = error.message;
+      setError(errorMessage);
+    } 
+    
+    finally{
+      setLoading(false);
     }
+
+ 
   }
 
   return (
@@ -98,6 +104,7 @@ const SignIn = () => {
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center"></div>
+          {error && <div className="error-message">{error}</div>}
           <div className="form-group mt-3">
             <label>Email address</label>
             <input
@@ -121,10 +128,12 @@ const SignIn = () => {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button className="btn btn-primary" onClick={onSubmit
-            }>
+            <button className="btn btn-primary" onClick={onSubmit}>
               Submit
             </button>
+
+            {/* Display a progress bar when loading */}
+          {loading && <CircularProgress />}
           </div>
         </div>
       </form>
