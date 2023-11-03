@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
+import CircularProgress from '../../../components/circularprogress.js';
 
 // import "firebase/auth";
 import "firebase/database";
@@ -28,35 +29,34 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [policerank, setpolicerank] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const handleSignup = async (event) => {
     event.preventDefault();
-    // Create a new user with email and password
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(async (userCredential) => {
-        const { user } = userCredential;
-        // Store additional user details in the database
-        // firebase.database().ref("policeMen").push({
-        //   name,
-        //   email,
-        //   userId: user.uid,
-        // });
-        // Redirect to the authentication page
 
+    setError(""); // Clear any previous errors
+    setLoading(true);
+    try{
+      const userCredential=firebase.auth().createUserWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+   
         await db.collection("policeMen").doc(user.id).set({
           name,
           email,
           password,
-          userId: user.uid,
+          policerank,
+          // userId: user.uid,
         });
         navigate("/signin");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+
+   
+    } catch(error){
+        setError(error.message);
+      }finally{
+        setLoading(false);
+      }
   };
 
   return (
@@ -95,7 +95,7 @@ const SignUpPage = () => {
             <label>Police Rank</label>
             <input
               value={policerank}
-              type="Police Rank"
+              type="text"
               className="form-control mt-1"
               placeholder="Police Rank"
               onChange={(e) => setpolicerank(e.target.value)}
@@ -116,10 +116,16 @@ const SignUpPage = () => {
               type="submit"
               // onClick={SignUpPage}
               className="btn btn-primary"
+              disabled={loading}
             >
-              Submit
+                 {loading ? "Signing Up..." : "Submit"}
             </button>
           </div>
+           {/* Display error message if there is an error */}
+           {error && <div className="error-message">{error}</div>}
+          
+          {/* Display a progress bar when loading */}
+          {loading && <CircularProgress />}
           <p className="text-center mt-2">
             {/* Forgot <a href="#">password?</a> */}
           </p>
