@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import Report from "./Pages/Report";
 import Aboutpage from "./Pages/About/Aboutpage";
-import Signin from "./Pages/Auth/sign-in/Signin";
+import SignIn from "./Pages/Auth/sign-in/Signin";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./Pages/Footer/footer"; // Adjust the path based on your file structure
 import SignUpPage from "./Pages/Auth/sign-up/Signup";
@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/assigncrime" element={<Assigncrime />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/signin" element={<Signin />}></Route>
+          <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/signout" element={<SignOut />}></Route>
           <Route path="/contact" element={<ContactPage />}></Route>

@@ -37,7 +37,7 @@ const SignUpPage = () => {
     event.preventDefault();
 
     setError(""); // Clear any previous errors
-    setLoading(true);
+    setLoading(false);
     try{
       const userCredential=firebase.auth().createUserWithEmailAndPassword(email, password);
       const user = userCredential.user;
@@ -49,16 +49,20 @@ const SignUpPage = () => {
           policerank,
           // userId: user.uid,
         });
-        navigate("/signin");
+        
 
    
     } catch(error){
         setError(error.message);
       }finally{
-        setLoading(false);
+        setLoading(true);
+        navigate('/signin')
       }
   };
 
+  const Nav = () => {
+     
+  }
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={handleSignup}>
@@ -117,15 +121,16 @@ const SignUpPage = () => {
               // onClick={SignUpPage}
               className="btn btn-primary"
               disabled={loading}
+              onClick={Nav}
             >
                  {loading ? "Signing Up..." : "Submit"}
             </button>
           </div>
            {/* Display error message if there is an error */}
-           {error && <div className="error-message">{error}</div>}
+           
           
           {/* Display a progress bar when loading */}
-          {loading && <CircularProgress />}
+      
           <p className="text-center mt-2">
             {/* Forgot <a href="#">password?</a> */}
           </p>
