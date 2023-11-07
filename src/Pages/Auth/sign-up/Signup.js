@@ -3,9 +3,11 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
 import CircularProgress from '../../../components/circularprogress.js';
+import validator from 'validator'
 
 // import "firebase/auth";
 import "firebase/database";
+
 
 // Initialize Firebase with your configuration
 const firebaseConfig = {
@@ -72,6 +74,23 @@ const SignUpPage = () => {
       setShowError('Password shouldnt exceed 8 characters')
     } 
   };
+
+
+
+  const validateEmail = (e) => {
+    setEmail(e.target.value)
+
+    if (email.indexOf('@') === -1) {
+      setShowError('Enter a valid Email! "@" is missing');
+    } else if (email.indexOf('.com') === -1) {
+      setShowError('Enter a valid Email! ".com" is missing');
+    } else if (!validator.isEmail(email)) {
+      setShowError('Enter a valid Email');
+    } else {
+      setShowError('Valid Email');
+    }
+  }
+  
   
   const handlePopupClose = () => {
     setShowPopup(false);
@@ -106,7 +125,7 @@ const SignUpPage = () => {
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => validateEmail(e)}
             />
           </div>
 
