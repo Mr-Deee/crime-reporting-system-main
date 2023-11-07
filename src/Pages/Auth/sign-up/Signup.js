@@ -30,14 +30,16 @@ const SignUpPage = () => {
   const [policerank, setpolicerank] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showError, setShowError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const handleSignup = async (event) => {
     event.preventDefault();
 
     setError(""); // Clear any previous errors
     setLoading(false);
+    setShowPopup(true);
     try{
       const userCredential=firebase.auth().createUserWithEmailAndPassword(email, password);
       const user = userCredential.user;
@@ -56,13 +58,26 @@ const SignUpPage = () => {
         setError(error.message);
       }finally{
         setLoading(true);
-        navigate('/signin')
+        
       }
   };
 
   const Nav = () => {
      
   }
+  const handleChange = (e) => {
+    const limit = 8;
+    setPassword(e.target.value.slice(0, limit))
+    if(e.target.value.length===8){  
+      setShowError('Password shouldnt exceed 8 characters')
+    } 
+  };
+  
+  const handlePopupClose = () => {
+    setShowPopup(false);
+    // Redirect to the homepage
+    navigate("/signin");
+  };
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={handleSignup}>
@@ -109,7 +124,8 @@ const SignUpPage = () => {
             <label>Password</label>
             <input
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              maxLength={8}
+              onChange={handleChange}
               type="password"
               className="form-control mt-1"
               placeholder="Password"
@@ -125,6 +141,7 @@ const SignUpPage = () => {
             >
                  {loading ? "Signing Up..." : "Submit"}
             </button>
+            <div>{showError}</div>
           </div>
            {/* Display error message if there is an error */}
            
@@ -136,6 +153,14 @@ const SignUpPage = () => {
           </p>
         </div>
       </form>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Signin Successful!</h2>
+            <button onClick={handlePopupClose}>Go to next page</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
