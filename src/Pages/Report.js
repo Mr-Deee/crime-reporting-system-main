@@ -37,6 +37,8 @@ const Report = () => {
     e.preventDefault(crimeId);
 
     try {
+       const limit = 10;
+    setReporterPhone(e.target.value.slice(0,10))
       // Generate a unique ID (timestamp + six-digit random string)
       const randomPart = Math.random().toString(36).substr(2, 6);
       const timestampPart = Date.now().toString().slice(-6); // Take the last 6 digits of the timestamp
@@ -135,6 +137,7 @@ const Report = () => {
         <label>
           Victim's Phone Number:
           <input
+             maxLength={10}
             type="tel"
             value={victimPhone}
             onChange={(e) => setVictimPhone(e.target.value)}

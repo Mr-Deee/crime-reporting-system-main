@@ -68,10 +68,10 @@ const SignUpPage = () => {
      
   }
   const handleChange = (e) => {
-    const limit = 8;
-    setPassword(e.target.value.slice(0, limit))
-    if(e.target.value.length===8){  
-      setShowError('Password shouldnt exceed 8 characters')
+    // const limit = 8;
+    setPassword(e.target.value.slice())
+    if(e.target.value.length < 8){  
+      setShowError('Minimum Password length 8 characters')
     } 
   };
 
