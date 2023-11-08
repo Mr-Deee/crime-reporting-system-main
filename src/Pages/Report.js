@@ -122,6 +122,8 @@ const Report = () => {
         <label>
           Reporter Phone Number:
           <input
+                       maxLength={10}
+
             type="tel"
             value={reporterPhone}
             onChange={(e) => setReporterPhone(e.target.value)}

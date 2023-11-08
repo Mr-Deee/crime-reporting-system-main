@@ -155,7 +155,7 @@ const validatefeilds=(e)=>{
             <label>Password</label>
             <input
               value={password}
-              maxLength={8}
+              // maxLength={8}
               onChange={handleChange}
               type="password"
               className="form-control mt-1"
