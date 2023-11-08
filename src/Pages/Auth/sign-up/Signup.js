@@ -75,6 +75,17 @@ const SignUpPage = () => {
     }
   };
 
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    if (!newEmail.includes(".com") && newEmail.trim() !== "") {
+      setShowError(".com is not entered");
+    } else {
+      setShowError("");
+    }
+  };
+
   const validateFields = () => {
     if (!name) {
       setShowError("Enter Name");
@@ -82,6 +93,10 @@ const SignUpPage = () => {
       setShowError("Enter Password");
     } else if (!policerank) {
       setShowError("Enter Police Rank");
+    } else if (!email) {
+      setShowError("Enter Email");
+    } else {
+      setShowError("Valid ");
     }
   };
   const handlePopupClose = () => {
@@ -117,7 +132,7 @@ const SignUpPage = () => {
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
             />
           </div>
 
