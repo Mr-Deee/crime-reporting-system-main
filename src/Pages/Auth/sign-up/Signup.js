@@ -38,7 +38,7 @@ const SignUpPage = () => {
   const navigate = useNavigate();
   const handleSignup = async (event) => {
     event.preventDefault();
-
+validatefeilds();
     setError(""); // Clear any previous errors
     setLoading(false);
     setShowPopup(true);
@@ -75,7 +75,18 @@ const SignUpPage = () => {
     } 
   };
 
+const validatefeilds=(e)=>{
+  setName(e.target.value)
+  if(name===null){
 
+    setShowError("Enter Name ");
+
+  }else if (password===null){
+    setShowError("Enter Password")
+  }else if(policerank===null){
+    setShowError("Enter Police Rank")
+  }
+}
 
   const validateEmail = (e) => {
     setEmail(e.target.value)
@@ -93,9 +104,10 @@ const SignUpPage = () => {
   
   
   const handlePopupClose = () => {
-    setShowPopup(false);
+  
     // Redirect to the homepage
     navigate("/signin");
+    setShowPopup(false);
   };
   return (
     <div className="Auth-form-container">

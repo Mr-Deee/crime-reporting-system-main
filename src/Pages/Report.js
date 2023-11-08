@@ -38,7 +38,9 @@ const Report = () => {
 
     try {
        const limit = 10;
-    setReporterPhone(e.target.value.slice(0,10))
+    setReporterPhone(e.target.value.slice(0,limit))
+    setVictimPhone(e.target.value.slice(0,limit))
+
       // Generate a unique ID (timestamp + six-digit random string)
       const randomPart = Math.random().toString(36).substr(2, 6);
       const timestampPart = Date.now().toString().slice(-6); // Take the last 6 digits of the timestamp
