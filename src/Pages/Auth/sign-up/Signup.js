@@ -36,6 +36,8 @@ const SignUpPage = () => {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
+
   const handleSignup = async (event) => {
     event.preventDefault();
 validatefeilds();
@@ -60,8 +62,10 @@ validatefeilds();
         setError(error.message);
       }finally{
         setLoading(true);
+        setShowPopup(true);
         
       }
+      setShowPopup(true);
   };
 
   const Nav = () => {
@@ -104,10 +108,10 @@ const validatefeilds=(e)=>{
   
   
   const handlePopupClose = () => {
-  
+    setShowPopup(false);
     // Redirect to the homepage
     navigate("/signin");
-    setShowPopup(false);
+  
   };
   return (
     <div className="Auth-form-container">
