@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
-import CircularProgress from '../../../components/circularprogress.js';
-import validator from 'validator'
+import CircularProgress from "../../../components/circularprogress.js";
+import validator from "validator";
 
 // import "firebase/auth";
 import "firebase/database";
-
 
 // Initialize Firebase with your configuration
 const firebaseConfig = {
@@ -37,81 +36,58 @@ const SignUpPage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-
   const handleSignup = async (event) => {
     event.preventDefault();
-validatefeilds();
+    validateFields();
     setError(""); // Clear any previous errors
-    setLoading(false);
+    setLoading(true); // Set loading to true while performing signup
     setShowPopup(true);
-    try{
-      const userCredential=firebase.auth().createUserWithEmailAndPassword(email, password);
-      const user = userCredential.user;
-   
-        await db.collection("policeMen").doc(user.id).set({
-          name,
-          email,
-          password,
-          policerank,
-          // userId: user.uid,
-        });
-        
 
-   
-    } catch(error){
-        setError(error.message);
-      }finally{
-        setLoading(true);
-        setShowPopup(true);
-        
-      }
+    try {
+      const userCredential = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
+      const user = userCredential.user; // Access the user from userCredential
+
+      await db.collection("policeMen").doc(user.uid).set({
+        // Use user.uid
+        name,
+        email,
+        password,
+        policerank,
+      });
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false); // Set loading back to false
       setShowPopup(true);
-  };
-
-  const Nav = () => {
-     
-  }
-  const handleChange = (e) => {
-    // const limit = 8;
-    setPassword(e.target.value.slice())
-    if(e.target.value.length < 8){  
-      setShowError('Minimum Password length 8 characters')
-    } 
-  };
-
-const validatefeilds=(e)=>{
-  setName(e.target.value)
-  if(name===null){
-
-    setShowError("Enter Name ");
-
-  }else if (password===null){
-    setShowError("Enter Password")
-  }else if(policerank===null){
-    setShowError("Enter Police Rank")
-  }
-}
-
-  const validateEmail = (e) => {
-    setEmail(e.target.value)
-
-    if (email.indexOf('@') === -1) {
-      setShowError('Enter a valid Email! "@" is missing');
-    } else if (email.indexOf('.com') === -1) {
-      setShowError('Enter a valid Email! ".com" is missing');
-    } else if (!validator.isEmail(email)) {
-      setShowError('Enter a valid Email');
-    } else {
-      setShowError('Valid Email');
     }
-  }
-  
-  
+  };
+
+  const Nav = () => {};
+  const handleChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    if (newPassword.length < 8) {
+      setShowError("Minimum Password length 8 characters");
+    } else {
+      setShowError(""); // Clear the error message when the password is valid
+    }
+  };
+
+  const validateFields = () => {
+    if (!name) {
+      setShowError("Enter Name");
+    } else if (!password) {
+      setShowError("Enter Password");
+    } else if (!policerank) {
+      setShowError("Enter Police Rank");
+    }
+  };
   const handlePopupClose = () => {
     setShowPopup(false);
     // Redirect to the homepage
     navigate("/signin");
-  
   };
   return (
     <div className="Auth-form-container">
@@ -141,7 +117,7 @@ const validatefeilds=(e)=>{
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
-              onChange={(e) => validateEmail(e)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -174,15 +150,14 @@ const validatefeilds=(e)=>{
               disabled={loading}
               onClick={Nav}
             >
-                 {loading ? "Signing Up..." : "Submit"}
+              {loading ? "Signing Up..." : "Submit"}
             </button>
             <div>{showError}</div>
           </div>
-           {/* Display error message if there is an error */}
-           
-          
+          {/* Display error message if there is an error */}
+
           {/* Display a progress bar when loading */}
-      
+
           <p className="text-center mt-2">
             {/* Forgot <a href="#">password?</a> */}
           </p>
