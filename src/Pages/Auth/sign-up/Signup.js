@@ -3,7 +3,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
 import CircularProgress from '../../../components/circularprogress.js';
-import validator from 'validator'
+import validator from 'validator';
 
 // import "firebase/auth";
 import "firebase/database";
